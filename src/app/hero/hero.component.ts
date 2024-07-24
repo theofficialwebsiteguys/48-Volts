@@ -17,7 +17,7 @@ export class HeroComponent implements OnInit {
   ngOnInit(): void {
     this.router.events.subscribe(event => {
       if (event instanceof NavigationEnd) {
-        this.isShrunk = !(event.url === '/landing' || event.url === '/home');
+        this.isShrunk = !(event.url === '/' || event.url === '/home');
       }
     });
   }

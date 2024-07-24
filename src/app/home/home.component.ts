@@ -1,10 +1,11 @@
 import { Component, ElementRef, Renderer2, ViewChild } from '@angular/core';
 import { NavComponent } from '../nav/nav.component';
+import { HeroComponent } from '../hero/hero.component';
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [NavComponent],
+  imports: [NavComponent, HeroComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.scss'
 })
@@ -15,8 +16,8 @@ export class HomeComponent {
 
   ngAfterViewInit(): void {
     // Add fade-in class to the home container after view initialization
-    setTimeout(() => {
-      this.renderer.addClass(this.homeContainer.nativeElement, 'fade-in');
-    }, 0);
+    // setTimeout(() => {
+    //   this.renderer.addClass(this.homeContainer.nativeElement, 'fade-in');
+    // }, 0);
   }
 }

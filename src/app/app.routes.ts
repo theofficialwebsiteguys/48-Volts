@@ -11,8 +11,8 @@ import { GamePlayingComponent } from './game-playing/game-playing.component';
 
 export const routes: Routes = [
     { path: '', redirectTo: '/home', pathMatch: 'full' },
-    { path: 'landing', component: LandingComponent, data: { isLanding: true }  },
-    { path: 'home', component: HomeComponent, data: { isHome: true } },
+    { path: 'landing', component: LandingComponent },
+    { path: 'home', component: HomeComponent },
     { path: 'about', component: AboutComponent },
     { path: 'portfolio', component: PortfolioComponent },
     { path: 'movies', component: MoviesComponent },
