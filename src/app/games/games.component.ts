@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { GameService } from '../game.service';
+import { NavComponent } from '../nav/nav.component';
 
 interface Game {
   title: string;
@@ -13,7 +14,7 @@ interface Game {
 @Component({
   selector: 'app-games',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, NavComponent],
   templateUrl: './games.component.html',
   styleUrl: './games.component.scss'
 })

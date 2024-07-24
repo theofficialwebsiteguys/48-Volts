@@ -76,12 +76,27 @@
                             <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
                         </li>
                         <li class="nav-item" (click)="closeMenu()">
-                            <a class="nav-link" routerLink="/shop" routerLinkActive="active">The Shop</a>
+                            <a class="nav-link" routerLink="/games" routerLinkActive="active">Games</a>
                         </li>
                         <li class="nav-item" (click)="closeMenu()">
-                            <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
+                            <a class="nav-link" routerLink="/movies" routerLinkActive="active">Movies</a>
                         </li>
-                        <li class="nav-item" *ngFor="let menu of dropdownMenus">
+                        <li class="nav-item" (click)="closeMenu()">
+                            <a class="nav-link" routerLink="/short-films" routerLinkActive="active">Short Films</a>
+                        </li>
+                        <li class="nav-item" (click)="closeMenu()">
+                            <a class="nav-link" routerLink="/movies" routerLinkActive="active">Movies</a>
+                        </li>
+                        <li class="nav-item" (click)="closeMenu()">
+                            <a class="nav-link" routerLink="/about" routerLinkActive="active">About Us</a>
+                        </li>
+                        <li class="nav-item" (click)="closeMenu()">
+                            <a class="nav-link" routerLink="/portfolio" routerLinkActive="active">Portfolio</a>
+                        </li>
+                        <li class="nav-item" (click)="closeMenu()">
+                            <a class="nav-link" routerLink="/blog" routerLinkActive="active">Blog</a>
+                        </li>
+                        <!-- <li class="nav-item" *ngFor="let menu of dropdownMenus">
                             <a class="nav-link dropdown-toggle" (click)="toggleDropdown(menu.id)">
                                 {{menu.title}}
                             </a>
@@ -95,28 +110,21 @@
                             <a class="btn btn-primary cart-btn w-100 mb-3" routerLink="/cart" routerLinkActive="active" (click)="closeMenu()">
                                 <i class="fas fa-shopping-cart"></i> Cart
                             </a>
-                        </li>
+                        </li> -->
                     </ul>
 
                     <div class="container slide-footer text-center">
-                        <img src="assets/limited-hype-logo.png" id="logo" height="100" alt="Logo Description" />
-                        <p class="text-dark mt-3">345 US-1, Kittery, ME 03904</p>
+                        <img src="assets/+48v.png" id="logo" height="100" alt="Logo Description" />
                       <section class="m-4">
-                        <a
-                          class="btn btn-link btn-floating btn-lg text-dark m-1"
-                          href="https://www.instagram.com/ltdhypekittery/"
-                          role="button"
-                          data-mdb-ripple-color="dark"
-                          ><i class="fab fa-instagram"></i
-                        ></a>
-                
-                        <a
-                        class="btn btn-link btn-floating btn-lg text-dark m-1"
-                        href=""
-                        role="button"
-                        data-mdb-ripple-color="dark"
-                        ><i class="fab fa-tiktok"></i
-                      ></a>
+                        <div class="socials-section bottom mb-3">
+                            <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube m-2"></i></a>
+                            <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram m-2"></i></a>
+                            <a href="https://www.twitter.com" target="_blank"><i class="fab fa-x-twitter m-2"></i></a>
+                            <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok m-2"></i></a>
+                            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-spotify m-2"></i></a>
+                            <a href="https://www.facebook.com" target="_blank"><i class="fab fa-soundcloud m-2"></i></a>
+                            <a href="mailto:info@example.com"><i class="fas fa-envelope"></i></a>
+                          </div>
                 
                       </section>
                 
@@ -151,4 +159,4 @@
     </div>
 </div> -->
 
-<!-- <app-hero></app-hero> -->
+<app-hero></app-hero>

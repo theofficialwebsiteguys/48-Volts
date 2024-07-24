@@ -1,12 +1,13 @@
 <div class="app-container" #appContainer>
+  <app-nav></app-nav>
   <div class="overlay" #overlay></div>
-  <nav *ngIf="!isLandingPage" class="navbar navbar-expand-lg navbar-light fixed-top" [class.scrolled]="!isHomePage && scrolled">
+  <!-- <nav *ngIf="!isLandingPage" class="navbar navbar-expand-lg navbar-light fixed-top" [class.scrolled]="!isHomePage && scrolled">
     <app-nav></app-nav>
   </nav>
 
   <div *ngIf="!isLandingPage" [class.hero-container]="true" [class.with-video]="isHomePage" [class.shrink]="!isHomePage" [class.black-bg]="!isHomePage && scrolled">
     <app-hero></app-hero>
-  </div>
+  </div> -->
   
 
   <router-outlet></router-outlet>
