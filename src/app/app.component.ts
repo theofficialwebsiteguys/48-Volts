@@ -22,24 +22,24 @@ export class AppComponent implements AfterViewInit {
   scrolled: boolean = false;
 
   constructor(private router: Router, private route: ActivatedRoute, private renderer: Renderer2) {
-    this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
-    ).subscribe(() => {
-      const currentRoute = this.route.root.firstChild;
-      //this.isHomePage = currentRoute?.snapshot.data['isHome'] || false;
-      //this.isLandingPage = currentRoute?.routeConfig?.path === 'landing';
+    // this.router.events.pipe(
+    //   filter(event => event instanceof NavigationEnd)
+    // ).subscribe(() => {
+    //   const currentRoute = this.route.root.firstChild;
+    //   //this.isHomePage = currentRoute?.snapshot.data['isHome'] || false;
+    //   //this.isLandingPage = currentRoute?.routeConfig?.path === 'landing';
 
-      // Trigger fade-in effect on navigation to the home page
-      if (this.isHomePage) {
-        this.renderer.addClass(this.appContainer.nativeElement, 'fade-in');
-        setTimeout(() => {
-          this.renderer.addClass(this.appContainer.nativeElement, 'transitioned');
-        }, 10); // Small delay to ensure the class is applied
-      } else {
-        this.renderer.removeClass(this.appContainer.nativeElement, 'fade-in');
-        this.renderer.removeClass(this.appContainer.nativeElement, 'transitioned');
-      }
-    });
+    //   // Trigger fade-in effect on navigation to the home page
+    //   if (this.isHomePage) {
+    //     this.renderer.addClass(this.appContainer.nativeElement, 'fade-in');
+    //     setTimeout(() => {
+    //       this.renderer.addClass(this.appContainer.nativeElement, 'transitioned');
+    //     }, 10); // Small delay to ensure the class is applied
+    //   } else {
+    //     this.renderer.removeClass(this.appContainer.nativeElement, 'fade-in');
+    //     this.renderer.removeClass(this.appContainer.nativeElement, 'transitioned');
+    //   }
+    // });
   }
 
   @HostListener('window:scroll', [])
