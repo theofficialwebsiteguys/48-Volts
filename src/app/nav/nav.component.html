@@ -1,0 +1,154 @@
+<nav class="navbar navbar-expand-lg navbar-light fixed-top">
+    <div class="container-fluid">
+        <!-- Navbar toggler button -->
+        <button class="navbar-toggler order-1 mt-4" type="button" (click)="toggleMobileMenu()">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <!-- Left side links -->
+        <!-- <div class="collapse navbar-collapse justify-content-start order-1" id="navbarScrollLeft">
+            <ul class="navbar-nav left mb-2 mb-lg-0">
+                <li class="nav-item" (click)="closeMenu()">
+                    <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+                </li>
+                <li class="nav-item" (click)="closeMenu()">
+                    <a class="nav-link" routerLink="/shop" routerLinkActive="active">The Shop</a>
+                </li>
+                <li class="nav-item" (click)="closeMenu()">
+                    <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
+                </li>
+            </ul>
+        </div> -->
+
+        <a class="navbar-brand order-2" routerLink="/home">
+            <img src="assets/+48v.png" id="logo" height="100" alt="Logo Description" />
+        </a>
+
+        <!-- Right side links -->
+        <div class="collapse navbar-collapse justify-content-end order-3" id="navbarScrollRight">
+            <ul class="navbar-nav left mb-2 mb-lg-0">
+                <li class="nav-item" (click)="closeMenu()">
+                    <a class="nav-link" routerLink="/games" routerLinkActive="active">Games</a>
+                </li>
+                <li class="nav-item" (click)="closeMenu()">
+                    <a class="nav-link" routerLink="/movies" routerLinkActive="active">Movies</a>
+                </li>
+                <li class="nav-item" (click)="closeMenu()">
+                    <a class="nav-link" routerLink="/short-films" routerLinkActive="active">Short Films</a>
+                </li>
+                <li class="nav-item" (click)="closeMenu()">
+                    <a class="nav-link" routerLink="/about" routerLinkActive="active">About Us</a>
+                </li>
+                <li class="nav-item" (click)="closeMenu()">
+                    <a class="nav-link" routerLink="/portfolio" routerLinkActive="active">Portfolio</a>
+                </li>
+                <li class="nav-item" (click)="closeMenu()">
+                    <a class="nav-link" routerLink="/blog" routerLinkActive="active">Blog</a>
+                </li>
+            </ul>
+            <!-- <ul class="navbar-nav right mb-2 mb-lg-0">
+                <li class="nav-item dropdown" *ngFor="let menu of dropdownMenus">
+                    <a class="nav-link dropdown-toggle" id="{{menu.id}}" [routerLink]="menu.items[0].link" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        {{menu.title}}
+                    </a>
+                    <ul class="dropdown-menu" [attr.aria-labelledby]="menu.id">
+                        <li *ngFor="let item of menu.items">
+                            <a class="dropdown-item" [routerLink]="item.link" (click)="closeMenu()">{{item.label}}</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="btn btn-primary cart-btn w-100 mb-3" routerLink="/cart"  (click)="closeMenu()">
+                        <i class="fas fa-shopping-cart"></i> Cart
+                    </a>
+                </li>
+            </ul> -->
+        </div>
+
+        <!-- Slide-in menu for smaller screens -->
+            <div class="slide-in-menu" [class.active]="mobileMenuActive">
+                <div class="slide-in-menu-content">
+                    <!-- Close button -->
+                     <button class="close-button" (click)="closeMenu()">×</button>
+
+                    <ul class="navbar-nav mb-2 mb-lg-0">
+                        <li class="nav-item" (click)="closeMenu()">
+                            <a class="nav-link" routerLink="/home" routerLinkActive="active">Home</a>
+                        </li>
+                        <li class="nav-item" (click)="closeMenu()">
+                            <a class="nav-link" routerLink="/shop" routerLinkActive="active">The Shop</a>
+                        </li>
+                        <li class="nav-item" (click)="closeMenu()">
+                            <a class="nav-link" routerLink="/contact" routerLinkActive="active">Contact</a>
+                        </li>
+                        <li class="nav-item" *ngFor="let menu of dropdownMenus">
+                            <a class="nav-link dropdown-toggle" (click)="toggleDropdown(menu.id)">
+                                {{menu.title}}
+                            </a>
+                            <ul class="dropdown-menu nested-menu" [class.show]="menu.active">
+                                <li *ngFor="let item of menu.items" (click)="closeMenu()">
+                                    <a class="dropdown-item" [routerLink]="item.link" routerLinkActive="active">{{item.label}}</a>
+                                </li>
+                            </ul>
+                        </li>
+                        <li class="nav-item mt-3">
+                            <a class="btn btn-primary cart-btn w-100 mb-3" routerLink="/cart" routerLinkActive="active" (click)="closeMenu()">
+                                <i class="fas fa-shopping-cart"></i> Cart
+                            </a>
+                        </li>
+                    </ul>
+
+                    <div class="container slide-footer text-center">
+                        <img src="assets/limited-hype-logo.png" id="logo" height="100" alt="Logo Description" />
+                        <p class="text-dark mt-3">345 US-1, Kittery, ME 03904</p>
+                      <section class="m-4">
+                        <a
+                          class="btn btn-link btn-floating btn-lg text-dark m-1"
+                          href="https://www.instagram.com/ltdhypekittery/"
+                          role="button"
+                          data-mdb-ripple-color="dark"
+                          ><i class="fab fa-instagram"></i
+                        ></a>
+                
+                        <a
+                        class="btn btn-link btn-floating btn-lg text-dark m-1"
+                        href=""
+                        role="button"
+                        data-mdb-ripple-color="dark"
+                        ><i class="fab fa-tiktok"></i
+                      ></a>
+                
+                      </section>
+                
+                      <!-- <button class="custom-button"  routerLink="/contact" routerLinkActive="active">
+                        Contact <span class="arrow">→</span>
+                      </button> -->
+                      
+                      
+                    </div>
+                </div>
+            </div>
+
+    </div>
+</nav>
+
+<!-- Search Bar Container -->
+<!-- <div id="searchBarContainer" class="search-bar-container">
+    <input #searchInput type="text" class="search-bar" placeholder="Search..." (input)="onSearch($event)" (keydown)="onSearchEnter($event)" />
+
+    <span class="close-search-bar" (click)="closeSearchBar()">&times;</span>
+    <div class="search-results-container">
+        <div *ngFor="let product of searchResults" class="search-result-item" (click)="viewProductDetail(product)">
+            <img [src]="product.images[0]" alt="{{product.name}}" class="search-result-image" />
+            <div class="search-result-details">
+                <p class="search-result-name">{{ product.name }}</p>
+                <p class="search-result-category">{{ product.brand }}</p>
+            </div>
+        </div>
+        <div *ngIf="searchResults.length === 0" class="search-result-item">
+            <p>No results found</p>
+        </div>
+    </div>
+</div> -->
+
+<!-- <app-hero></app-hero> -->

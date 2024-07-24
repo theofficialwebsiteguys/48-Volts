@@ -1,0 +1,30 @@
+<div class="blog-page m-auto mt-5">
+    <h2>Newest Articles</h2>
+    <div class="articles">
+      <div class="article" *ngFor="let article of newestArticles">
+        <img [src]="article.image" alt="{{article.title}}">
+        <div class="article-content">
+          <h3>{{article.title}}</h3>
+          <p>{{article.author}} | {{article.date}}</p>
+        </div>
+      </div>
+    </div>
+  
+    <!-- <div class="featured-article">
+      <h3>{{featuredArticle.title}}</h3>
+      <p>{{featuredArticle.description}}</p>
+      <button>Watch now</button>
+    </div>
+   -->
+    <h2>Latest Interviews</h2>
+    <div class="interviews">
+      <div class="interview" *ngFor="let interview of latestInterviews">
+        <img [src]="interview.image" alt="{{interview.title}}">
+        <div class="interview-content">
+          <h3>{{interview.title}}</h3>
+          <p>{{interview.author}} | {{interview.date}}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+  

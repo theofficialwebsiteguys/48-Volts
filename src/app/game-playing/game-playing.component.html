@@ -1,0 +1,11 @@
+<!-- game-playing.component.html -->
+<div class="game-playing-container">
+    <div class="hero-section">
+      <button class="back-button" (click)="goBack()">Back to Games</button>
+      <h1>{{ gameTitle }}</h1>
+    </div>
+    <div class="game-iframe-container">
+      <iframe [src]="gameLink" width="600px" height="500px"></iframe>
+    </div>
+  </div>
+  

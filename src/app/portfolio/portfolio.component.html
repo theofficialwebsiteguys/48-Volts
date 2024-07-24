@@ -1,0 +1,41 @@
+<div class="portfolio-container">
+    <div class="section" id="audio">
+      <h2>Audio</h2>
+      <div class="gallery">
+        <div *ngFor="let file of audioFiles" class="gallery-item">
+          <audio controls>
+            <source [src]="file" type="audio/mpeg">
+            Your browser does not support the audio element.
+          </audio>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="video">
+      <h2>Videos</h2>
+      <div class="gallery">
+        <div *ngFor="let file of videoFiles" class="gallery-item">
+          <video width="320" height="240" controls>
+            <source [src]="file" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+        </div>
+      </div>
+    </div>
+    <div class="section" id="gfx">
+      <h2>GFX</h2>
+      <div class="gallery">
+        <div *ngFor="let file of gfxFiles" class="gallery-item">
+          <img [src]="file" alt="Sample GFX">
+        </div>
+      </div>
+    </div>
+    <div class="section" id="photography">
+      <h2>Photography</h2>
+      <div class="gallery">
+        <div *ngFor="let file of photographyFiles" class="gallery-item">
+          <img [src]="file" alt="Sample Photography">
+        </div>
+      </div>
+    </div>
+  </div>
+  

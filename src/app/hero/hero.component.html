@@ -1,0 +1,18 @@
+<div [class.hero-container-shrunk]="isShrunk" class="hero-container">
+    <video id="heroVideo" class="video" loop autoplay playsinline (canplay)="onCanPlay($event)" (loadedmetadata)="onLoadedMetadata($event)">
+      <source src="assets/Hero.mp4" type="video/mp4">
+    </video>
+    <div class="hero-content text-center text-white">
+      <!-- Content here -->
+    </div>
+    <div [class.hidden]="isShrunk" class="socials-section bottom mb-3">
+      <a href="https://www.youtube.com" target="_blank"><i class="fab fa-youtube m-2"></i></a>
+      <a href="https://www.instagram.com" target="_blank"><i class="fab fa-instagram m-2"></i></a>
+      <a href="https://www.twitter.com" target="_blank"><i class="fab fa-x-twitter m-2"></i></a>
+      <a href="https://www.tiktok.com" target="_blank"><i class="fab fa-tiktok m-2"></i></a>
+      <a href="https://www.facebook.com" target="_blank"><i class="fab fa-spotify m-2"></i></a>
+      <a href="https://www.facebook.com" target="_blank"><i class="fab fa-soundcloud m-2"></i></a>
+      <a href="mailto:info@example.com"><i class="fas fa-envelope"></i></a>
+    </div>
+  </div>
+  

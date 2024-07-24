@@ -1,0 +1,18 @@
+<div class="about-us-container">    
+      
+    <section class="hero-section">
+      <h1>48 Games</h1>
+      <p>Explore our diverse collection of 48 exciting games. Click on any game to start playing!</p>
+    </section>
+  
+    <section class="games-section">
+        <!-- <h2>Our Games</h2> -->
+        <div class="games-grid">
+            <div class="game" *ngFor="let game of games">
+                <img class="game-image" [src]="game.image" alt="{{ game.title }}" (click)="selectGame(game)" />
+                <h3>{{ game.title }}</h3>
+            </div>
+        </div>
+    </section>
+  </div>
+  
