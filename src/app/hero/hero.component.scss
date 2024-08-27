@@ -2,11 +2,11 @@
     position: relative;
     width: 100%;
     height: 100vh;
-    transition: height 0.5s ease;
+    transition: height 0.2s ease;
     overflow: hidden;
     
     &.hero-container-shrunk {
-      height: 20vh;
+      height: 30vh;
     }
   }
   
