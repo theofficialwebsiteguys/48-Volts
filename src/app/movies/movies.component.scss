@@ -1,0 +1,106 @@
+.carousel-container {
+    font-family: 'Press Start 2P', cursive;
+    color: #ffffff;
+    background-color: #000000;
+    padding: 20px;
+    text-align: center;
+    margin: auto;
+    overflow: hidden;
+}
+
+.hero-section {
+    max-width: 1200px;
+    margin: auto;
+    color: white;
+    padding: 20px;
+}
+
+.hero-section h1 {
+    font-size: 48px;
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 0 0 10px #00ccff, 0 0 20px #ff00ff, 0 0 30px #00ccff, 0 0 40px #ff00ff, 0 0 50px #00ccff, 0 0 60px #ff00ff, 0 0 70px #00ccff;
+    position: relative;
+    z-index: 1;
+    animation: glitch 1s infinite;
+    padding: 10px;
+    border: 4px solid #808080;
+}
+
+.hero-section p,
+.services-section p,
+.value-proposition-section p,
+.vision-section p,
+.join-us-section p,
+.value-proposition-section li {
+    font-family: 'Roboto', sans-serif;
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+@keyframes glitch {
+    0% {
+        text-shadow: 2px 2px #00ccff, -2px -2px #ff00ff;
+    }
+    25% {
+        text-shadow: -2px 2px #00ccff, 2px -2px #ff00ff;
+    }
+    50% {
+        text-shadow: -2px -2px #00ccff, 2px 2px #ff00ff;
+    }
+    75% {
+        text-shadow: 2px -2px #00ccff, -2px 2px #ff00ff;
+    }
+    100% {
+        text-shadow: 2px 2px #00ccff, -2px -2px #ff00ff;
+    }
+}
+
+.movie-group {
+    padding: 20px;
+}
+
+.carousel-container {
+    padding: 20px;
+    align-items: center;
+}
+
+.carousel-inner {
+    margin: auto;
+    width: 90%;
+}
+
+.carousel-item img {
+    height: 300px;
+    margin: auto;
+    object-fit: cover;
+  }
+  
+.carousel-caption {
+    font-family: "Roboto", sans-serif;
+    position: relative;
+    left: 0;
+    right: 0;
+    margin: 15px;
+}
+
+.carousel-control-next, .carousel-control-prev {
+    width: auto;
+}
+
+.carousel-control-next-icon, .carousel-control-prev-icon {
+    width: 5vw;
+    height: 5vw;
+}
+
+.carousel-control-next-icon:hover, .carousel-control-prev-icon:hover {
+    transform: scale(1.05);
+    transition: transform .5s ease-in-out;
+}
+  
+  .col {
+    padding: 0 5px; /* Add some padding between columns */
+  }
+
+  
