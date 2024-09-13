@@ -1,0 +1,19 @@
+<mat-dialog-content>
+  <ng-container [ngSwitch]="mediaType">
+    <audio *ngSwitchCase="'audio'" controls>
+      <source [src]="mediaUrl" type="audio/mpeg">
+      Your browser does not support the audio element.
+    </audio>
+
+    <video *ngSwitchCase="'video'" width="100%" controls autoplay>
+      <source [src]="mediaUrl" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <img *ngSwitchCase="'image'" [src]="mediaUrl" alt="Image Preview" />
+  </ng-container>
+</mat-dialog-content>
+
+<!-- <mat-dialog-actions>
+  <button mat-button (click)="onClose()">Close</button>
+</mat-dialog-actions> -->

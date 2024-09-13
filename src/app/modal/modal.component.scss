@@ -1,0 +1,48 @@
+::ng-deep .mat-dialog-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    padding: 16px;
+    max-width: 90vw; /* Limit width of modal */
+    max-height: 90vh; /* Limit height of modal */
+    box-sizing: border-box;
+  }
+  
+  /* Ensure video, image, and audio are responsive */
+  img, audio, video {
+    width: 100%;
+    height: auto;
+    max-height: 80vh; /* Prevent media from exceeding 70% of viewport height */
+    object-fit: contain; /* Ensure media fits well */
+  }
+  
+  /* Adjust the actions at the bottom */
+  .mat-dialog-actions {
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  .mat-mdc-dialog-content {
+    padding: 0 !important;
+    max-height: 80vh !important;
+}
+  
+  /* Media Queries for mobile devices */
+  @media screen and (max-width: 767px) {
+    ::ng-deep .mat-dialog-container {
+      max-width: 100vw; /* Take full width on mobile */
+      max-height: 100vh; /* Take full height on mobile */
+      padding: 8px;
+    }
+  
+    img, audio, video {
+      max-height: 50vh; /* Reduce the max-height for media on mobile */
+    }
+  
+    .mat-dialog-actions {
+      justify-content: center; /* Center the button on mobile */
+    }
+  }
+  

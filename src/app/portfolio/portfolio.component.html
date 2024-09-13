@@ -1,41 +1,65 @@
 <div class="portfolio-container">
-    <div class="section" id="audio">
-      <h2>Audio</h2>
-      <div class="gallery">
-        <div *ngFor="let file of audioFiles" class="gallery-item">
+  <!-- Audio Section -->
+  <div class="section" id="audio">
+    <h2>Audio</h2>
+    <div class="carousel">
+      <button class="prev-btn" (click)="scrollLeft(audioGallery)">‹</button>
+      <div class="gallery" #audioGallery>
+        <div *ngFor="let file of audioFiles" class="audio-item" (click)="openMediaModal(file, 'audio', 'Audio')">
           <audio controls>
             <source [src]="file" type="audio/mpeg">
             Your browser does not support the audio element.
           </audio>
         </div>
       </div>
-    </div>
-    <div class="section" id="video">
-      <h2>Videos</h2>
-      <div class="gallery">
-        <div *ngFor="let file of videoFiles" class="gallery-item">
-          <video width="320" height="240" controls>
-            <source [src]="file" type="video/mp4">
-            Your browser does not support the video tag.
-          </video>
-        </div>
-      </div>
-    </div>
-    <div class="section" id="gfx">
-      <h2>GFX</h2>
-      <div class="gallery">
-        <div *ngFor="let file of gfxFiles" class="gallery-item">
-          <img [src]="file" alt="Sample GFX">
-        </div>
-      </div>
-    </div>
-    <div class="section" id="photography">
-      <h2>Photography</h2>
-      <div class="gallery">
-        <div *ngFor="let file of photographyFiles" class="gallery-item">
-          <img [src]="file" alt="Sample Photography">
-        </div>
-      </div>
+      <button class="next-btn" (click)="scrollRight(audioGallery)">›</button>
     </div>
   </div>
   
+
+    <!-- Video Section -->
+    <div class="section" id="video">
+      <h2>Videos</h2>
+      <div class="carousel">
+        <button class="prev-btn" (click)="scrollLeft(videoGallery)">‹</button>
+        <div class="gallery" #videoGallery>
+          <div *ngFor="let file of videoFiles" class="gallery-item" (click)="openMediaModal(file.url, 'video', 'Video')">
+            <!-- Use a placeholder image or video thumbnail here -->
+            <img [src]="file.thumbnail" alt="Video Thumbnail" />
+            <!-- Or generate thumbnails dynamically -->
+            <!-- <img [src]="getThumbnail(file)" alt="Video Thumbnail" /> -->
+          </div>
+        </div>
+        <button class="next-btn" (click)="scrollRight(videoGallery)">›</button>
+      </div>
+    </div>
+  
+
+  <!-- GFX Section -->
+  <div class="section" id="gfx">
+    <h2>GFX</h2>
+    <div class="carousel">
+      <button class="prev-btn" (click)="scrollLeft(gfxGallery)">‹</button>
+      <div class="gallery" #gfxGallery>
+        <div *ngFor="let file of gfxFiles" class="gallery-item" (click)="openMediaModal(file, 'image', 'GFX')">
+          <img [src]="file" alt="Sample GFX">
+        </div>
+      </div>
+      <button class="next-btn" (click)="scrollRight(gfxGallery)">›</button>
+    </div>
+  </div>
+
+  <!-- Photography Section -->
+  <div class="section" id="photography">
+    <h2>Photography</h2>
+    <div class="carousel">
+      <button class="prev-btn" (click)="scrollLeft(photographyGallery)">‹</button>
+      <div class="gallery" #photographyGallery>
+        <div *ngFor="let file of photographyFiles" class="gallery-item" (click)="openMediaModal(file, 'image', 'Photography')">
+          <img [src]="file" alt="Sample Photography">
+        </div>
+      </div>
+      <button class="next-btn" (click)="scrollRight(photographyGallery)">›</button>
+    </div>
+  </div>
+</div>

@@ -5,3 +5,17 @@ body{
     background-color: black;
 }
 
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.mat-dialog-container {
+    border-radius: 8px;  /* Rounded corners */
+    padding: 20px;       /* Internal padding */
+    background-color: white;
+  }
+  
+  .mat-dialog-backdrop {
+    background-color: rgba(0, 0, 0, 0.6); /* Darken the background behind the modal */
+  }
+  

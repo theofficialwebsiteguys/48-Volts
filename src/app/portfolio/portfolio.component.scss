@@ -1,48 +1,238 @@
 .portfolio-container {
-    background-color: #000000;
-    color: #d0d0d0;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  
-    .section {
-      margin-bottom: 40px;
-      padding: 20px;
-      border-radius: 8px;
-      background-color: rgba(255, 255, 255, 0.1);
-      transition: transform 0.3s ease-in-out;
-      width: 80%;
-      max-width: 1200px;
-      text-align: center;
-  
-      &:hover {
-        transform: scale(1.05);
-        background-color: rgba(248, 144, 231, 0.1);
-      }
-  
-      h2 {
-        color: #f890e7;
-      }
-  
-      .gallery {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
-        margin-top: 20px;
-      }
-  
-      .gallery-item {
-        flex: 1 1 calc(33% - 40px);
-        max-width: calc(33% - 40px);
-        height: auto;
-  
-        audio, video, img {
-          width: 100%;
-          height: auto;
-        }
-      }
-    }
+  background-color: #000000;
+  color: #d0d0d0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 50px;
+  width: 100%;
+}
+
+.section {
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.section h2 {
+  font-size: 36px;
+  margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  text-shadow: 0 0 10px #00ccff, 0 0 20px #ff00ff, 0 0 30px #00ccff, 0 0 40px #ff00ff, 0 0 50px #00ccff, 0 0 60px #ff00ff, 0 0 70px #00ccff;
+  position: relative;
+  z-index: 1;
+  animation: glitch 1s infinite;
+  padding: 10px;
+}
+
+.carousel {
+  position: relative;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* General styles */
+.gallery {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+  width: 100%;
+  scroll-snap-type: x mandatory;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+/* Desktop: No scrolling, control only with buttons */
+@media screen and (min-width: 768px) {
+  .gallery {
+    overflow: hidden; /* Disable scrolling on desktop */
+  }
+}
+
+/* Mobile: Enable scrolling */
+@media screen and (max-width: 767px) {
+  .gallery {
+    overflow-x: auto; /* Enable horizontal scrolling on mobile */
+    scroll-behavior: smooth;
+    scrollbar-width: none; /* Hide scrollbar in Firefox */
+  }
+
+  /* Hide scrollbar for Webkit-based browsers */
+  .gallery::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+/* Arrow buttons */
+.prev-btn, .next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+  display: flex; /* Show buttons by default */
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+.prev-btn:hover, .next-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Media Query: Hide arrows if not needed on mobile */
+@media screen and (max-width: 767px) {
+  .prev-btn,
+  .next-btn {
+    display: none; /* Initially hide the arrows */
+  }
+
+  /* Use dynamic JS to show arrows based on scrolling */
+}
+
+
+.gallery-item, .audio-item {
+  scroll-snap-align: start;
+  flex-shrink: 0;
+  transition: transform 0.3s ease-in-out;
+  width: 200px;
+  height: 300px;
+}
+
+.audio-item {
+  height: 75px;
+}
+
+audio, video, img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.prev-btn, .next-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: white;
+  border: none;
+  font-size: 2rem;
+  padding: 10px;
+  cursor: pointer;
+  z-index: 1;
+}
+
+.prev-btn {
+  left: 10px;
+}
+
+.next-btn {
+  right: 10px;
+}
+
+.prev-btn:hover, .next-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* Adjust first and last item to align properly */
+.gallery-item:first-child {
+  margin-left: 0; /* Ensure no extra margin on the first item */
+}
+
+.gallery-item:last-child {
+  margin-right: 0; /* Ensure no extra margin on the last item */
+}
+
+/* Media Queries for Desktop */
+@media screen and (min-width: 768px) {
+  .gallery-item, .audio-item {
+    width: 250px; /* Increase width on desktop */
+    height: 350px;
   }
   
+  .audio-item {
+    height: 100px; /* Adjust audio size */
+  }
+
+  .portfolio-container {
+    padding: 40px; /* Increase padding for better spacing on desktop */
+  }
+
+  .section h2 {
+    font-size: 2em; /* Increase section title size */
+  }
+}
+
+/* Media Queries for Large Screens */
+@media screen and (min-width: 1024px) {
+  .gallery-item, .audio-item {
+    width: 300px; /* Increase width on larger screens */
+    height: 400px;
+  }
+  
+  .audio-item {
+    height: 120px; /* Adjust audio size */
+  }
+
+  .section {
+    max-width: 1400px; /* Increase max-width for larger screens */
+  }
+
+  .prev-btn, .next-btn {
+    font-size: 3rem; /* Increase button size on larger screens */
+  }
+}
+
+
+@keyframes glitch {
+  0% {
+      text-shadow: 2px 2px #00ccff, -2px -2px #ff00ff;
+  }
+  25% {
+      text-shadow: -2px 2px #00ccff, 2px -2px #ff00ff;
+  }
+  50% {
+      text-shadow: -2px -2px #00ccff, 2px 2px #ff00ff;
+  }
+  75% {
+      text-shadow: 2px -2px #00ccff, -2px 2px #ff00ff;
+  }
+  100% {
+      text-shadow: 2px 2px #00ccff, -2px -2px #ff00ff;
+  }
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 2px;
+  background: linear-gradient(to right, transparent 50%, #00ccff 50%);
+  animation: electric-wire 4s infinite linear;
+}
+
+@keyframes electric-wire {
+  0% {
+      transform: translateX(-100%);
+  }
+  100% {
+      transform: translateX(100%);
+  }
+}
