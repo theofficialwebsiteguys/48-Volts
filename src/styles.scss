@@ -19,3 +19,42 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
     background-color: rgba(0, 0, 0, 0.6); /* Darken the background behind the modal */
   }
   
+
+  
+@keyframes glitch {
+  0% {
+      text-shadow: 2px 2px #00ccff, -2px -2px #ff00ff;
+  }
+  25% {
+      text-shadow: -2px 2px #00ccff, 2px -2px #ff00ff;
+  }
+  50% {
+      text-shadow: -2px -2px #00ccff, 2px 2px #ff00ff;
+  }
+  75% {
+      text-shadow: 2px -2px #00ccff, -2px 2px #ff00ff;
+  }
+  100% {
+      text-shadow: 2px 2px #00ccff, -2px -2px #ff00ff;
+  }
+}
+
+body::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -50%;
+  width: 200%;
+  height: 2px;
+  background: linear-gradient(to right, transparent 50%, #00ccff 50%);
+  animation: electric-wire 4s infinite linear;
+}
+
+@keyframes electric-wire {
+  0% {
+      transform: translateX(-100%);
+  }
+  100% {
+      transform: translateX(100%);
+  }
+}

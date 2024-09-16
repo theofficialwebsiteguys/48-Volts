@@ -46,7 +46,7 @@ export class HeroComponent implements OnInit {
     if (heroContainer) {
       // Set height based on 'isShrunk' state
       if (this.isShrunk) {
-        heroContainer.style.height = '30vh'; // Shrunk state
+        heroContainer.style.height = '60vh'; // Shrunk state
       } else {
         heroContainer.style.height = `${window.innerHeight}px`; // Full height
       }

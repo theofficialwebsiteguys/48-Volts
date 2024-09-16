@@ -1,0 +1,39 @@
+.modal-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    position: relative;
+  }
+  
+  .item-container {
+    width: 80%;
+    max-width: 800px;
+    text-align: center;
+  }
+  
+  .prev-btn, .next-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 2rem;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+    color: #ffffff;
+    padding: 10px;
+  }
+  
+  .prev-btn {
+    left: 10px;
+  }
+  
+  .next-btn {
+    right: 10px;
+  }
+  
+  ::ng-deep .mat-mdc-dialog-surface, 
+::ng-deep .mdc-dialog__surface {
+    max-width: 500px !important; /* Set the max width to 500px */
+}
