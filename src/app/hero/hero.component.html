@@ -3,7 +3,9 @@
       <source src="https://storage.googleapis.com/48volts/LANDING%20PAGE/3751d1f815cd41e9af14446ce6b41171.mov" type="video/mp4">
     </video>
     <div class="hero-content text-center text-white">
-      <!-- Content here -->
+      <section *ngIf="isShrunk" class="hero-section">
+        <h1>Welcome to 48 Volts: Electrifying Life's Moments</h1>
+    </section>
     </div>
     <div [class.hidden]="isShrunk" class="socials-section bottom mb-3">
         <a href="https://www.youtube.com/channel/UCvRE08GJiIRpUG_X7vPJD7w" target="_blank"><i class="fab fa-youtube m-2"></i></a>

@@ -1,20 +1,77 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    height: 100%;
+}
 
+body::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -50%;
+    width: 200%;
+    height: 2px;
+    background: linear-gradient(to right, transparent 50%, #00ccff 50%);
+    animation: electric-wire 4s infinite linear;
+}
+
+@keyframes electric-wire {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+/* About Us Container */
 .about-us-container {
+    position: relative;
     font-family: 'Press Start 2P', cursive;
     color: #ffffff;
-    background-color: #000000;
-    padding: 20px;
+    padding: 0;
     text-align: center;
-    margin: auto;
-    overflow: hidden; /* Hide overflow to contain animations */
+    z-index: 2;
+    overflow: hidden;
+}
+
+/* Parallax Video */
+.parallax-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.parallax-video video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Sections */
+.hero-section, 
+.services-section, 
+.value-proposition-section, 
+.join-us-section {
+    position: relative;
+    z-index: 2;
+    padding: 75px 20px;
+    background-color: rgb(0, 0, 0);
+    margin: 0;
 }
 
 .hero-section {
-    max-width: 1200px; 
-    margin: auto;
     color: white;
-    padding: 50px 20px;
-    margin-bottom: 20px;
+    text-align: center;
 }
 
 .hero-section h1 {
@@ -22,7 +79,7 @@
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 2px;
-    text-shadow: 0 0 10px #00ccff, 0 0 20px #ff00ff, 0 0 30px #00ccff, 0 0 40px #ff00ff, 0 0 50px #00ccff, 0 0 60px #ff00ff, 0 0 70px #00ccff;
+    text-shadow: 0 0 10px #00ccff, 0 0 20px #ff00ff, 0 0 30px #00ccff;
     position: relative;
     z-index: 1;
     animation: glitch 1s infinite;
@@ -30,52 +87,52 @@
     border: 4px solid #808080;
 }
 
-/* Media query for mobile devices */
 @media screen and (max-width: 767px) {
     .hero-section h1 {
-        font-size: 24px; /* Set font size to 24px for mobile */
+        font-size: 24px;
     }
 }
 
+@keyframes glitch {
+    0% {
+        text-shadow: 2px 2px #00ccff, -2px -2px #ff00ff;
+    }
+    25% {
+        text-shadow: -2px 2px #00ccff, 2px -2px #ff00ff;
+    }
+    50% {
+        text-shadow: -2px -2px #00ccff, 2px 2px #ff00ff;
+    }
+    75% {
+        text-shadow: 2px -2px #00ccff, -2px 2px #ff00ff;
+    }
+    100% {
+        text-shadow: 2px 2px #00ccff, -2px -2px #ff00ff;
+    }
+}
 
 .hero-section p, 
 .services-section p, 
 .value-proposition-section p, 
-.vision-section p, 
-.join-us-section p,
+.join-us-section p, 
 .value-proposition-section li {
     font-family: 'Roboto', sans-serif;
     font-size: 18px;
     line-height: 1.6;
 }
 
-.services-section, .value-proposition-section, .vision-section{
-    text-align: left;
-    padding: 40px 20px;
-    margin-bottom: 20px;
-    border-radius: 10px;
-    max-width: 1200px;
-    margin: auto;
-}
-
-.join-us-section {
-  text-align: center;
-  padding: 40px 20px;
-  margin-bottom: 20px;
-  border-radius: 10px;
-  max-width: 1200px;
-  margin: auto;
-}
-
-.services-section h2, .value-proposition-section h2, .vision-section h2, .join-us-section h2 {
+.services-section h2, 
+.value-proposition-section h2, 
+.join-us-section h2 {
     font-size: 28px;
     margin-bottom: 20px;
     color: #f890e7;
-    text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ccff, 0 0 30px #ff00ff, 0 0 40px #00ccff, 0 0 50px #ff00ff, 0 0 60px #00ccff, 0 0 70px #ff00ff;
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ccff, 0 0 30px #ff00ff;
     padding: 10px;
-    border: 2px solid #ffffff; /* White border around other pink titles */
-    display: inline-block; /* Ensures border wraps tightly around the title */
-    text-align: left; /* Align subheaders to the left */
+    border: 2px solid #ffffff;
+    display: inline-block;
+    text-align: left;
+    width: 100%;
 }
 
 .services-grid, .value-proposition-grid {
@@ -89,14 +146,13 @@
     flex: 1 1 calc(33% - 20px);
     background: #121212;
     padding: 20px;
-    border-radius: 10px;
 }
 
 .service h3, .value-proposition h3 {
     font-size: 24px;
     margin-bottom: 10px;
     color: #0bd3d3;
-    text-align: left; /* Align inner headers to the left */
+    text-align: left;
 }
 
 .value-proposition ul {
@@ -122,40 +178,6 @@
     color: #d0d0d0;
 }
 
-@keyframes glitch {
-    0% {
-        text-shadow: 2px 2px #00ccff, -2px -2px #ff00ff;
-    }
-    25% {
-        text-shadow: -2px 2px #00ccff, 2px -2px #ff00ff;
-    }
-    50% {
-        text-shadow: -2px -2px #00ccff, 2px 2px #ff00ff;
-    }
-    75% {
-        text-shadow: 2px -2px #00ccff, -2px 2px #ff00ff;
-    }
-    100% {
-        text-shadow: 2px 2px #00ccff, -2px -2px #ff00ff;
-    }
-}
-
-body::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: -50%;
-    width: 200%;
-    height: 2px;
-    background: linear-gradient(to right, transparent 50%, #00ccff 50%);
-    animation: electric-wire 4s infinite linear;
-}
-
-@keyframes electric-wire {
-    0% {
-        transform: translateX(-100%);
-    }
-    100% {
-        transform: translateX(100%);
-    }
+.transparent-section {
+    height: 400px;
 }
