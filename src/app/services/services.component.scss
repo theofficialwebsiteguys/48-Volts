@@ -1,0 +1,150 @@
+/* General styling */
+body {
+    background-color: #0f0f0f; /* Dark background for techy look */
+    color: #e0e0e0;
+    font-family: 'Audiowide', sans-serif;
+}
+
+/* Section styling */
+.services-section {
+    padding: 50px 0;
+    text-align: center;
+    color: #fff;
+}
+
+.services-section h2 {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    color: #e0e0e0;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    animation: glitch 1.5s infinite;
+}
+
+/* Services grid */
+.services-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    padding: 0 20px;
+}
+
+/* Service card styling */
+.service {
+    background: rgba(30, 30, 30, 0.9); /* Slight transparency for techy feel */
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    position: relative;
+    overflow: hidden;
+    transition: all 0.4s ease;
+}
+
+.service:hover {
+    transform: scale(1.05);
+    border-color: #00ffff; /* Neon border on hover */
+}
+
+.service h3 {
+    font-size: 1.8rem;
+    color: #00ffff;
+    margin-bottom: 15px;
+    position: relative;
+    z-index: 1;
+}
+
+.service p {
+    font-size: 1rem;
+    color: #e0e0e0;
+    z-index: 1;
+}
+
+.service:before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: #00ffff;
+    opacity: 0.1;
+    transform: rotate(45deg);
+    transition: all 0.5s ease;
+    z-index: 0;
+}
+
+.service:hover:before {
+    transform: rotate(45deg) scale(1.1);
+    opacity: 0.15;
+}
+
+/* Glitch effect on h2 */
+@keyframes glitch {
+    0% {
+        text-shadow: 2px 2px #ff00ff, -2px -2px #00ffff;
+    }
+    50% {
+        text-shadow: -2px 2px #ff00ff, 2px -2px #00ffff;
+    }
+    100% {
+        text-shadow: 2px -2px #ff00ff, -2px 2px #00ffff;
+    }
+}
+
+
+
+
+.socials-section {
+    margin: auto;
+    gap: 15px;
+    z-index: 3;
+  }
+  
+  .socials-section a {
+    color: white;
+    font-size: 40px;
+    transition: color 0.3s;
+  }
+  
+  .socials-section a:hover {
+    color: #ffcc00;
+  }
+  
+  .socials-section.top {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  
+  .socials-section.bottom {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  @media (max-width: 768px) {
+    .socials-section a{
+      font-size: 24px;
+    }
+
+  }
+  
+  
+/* Join Us Section */
+.join-us-section {
+    padding: 50px 20px;
+    background-color: rgba(0, 0, 0, 0.9);
+    color: #ffffff;
+}
+
+.join-us-section h2 {
+    font-size: 3rem;
+    margin-bottom: 40px;
+    color: #ff00ff;
+    text-shadow: 0 0 10px #ff00ff, 0 0 20px #00ffff, 0 0 30px #ff00ff;
+    animation: glitch 1.5s infinite;
+}
+
+.join-us-section p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    color: #e0e0e0;
+}

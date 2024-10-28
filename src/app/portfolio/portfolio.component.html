@@ -13,13 +13,13 @@
         <i [class]="category.additionalIcon" class="fa-icon-overlay"></i>
       </span>
       <!-- Title Below Folder Icon -->
-      <h2 class="folder-title">{{category.name}}</h2>
+      <h2 class="folder-title audiowide-regular">{{category.name}}</h2>
     </div>
   </div>
   
   
   <!-- Show Subcategories when a category is selected -->
-  <div *ngIf="selectedCategory" class="subcategories-container">
+  <div *ngIf="selectedCategory" class="subcategories-container audiowide-regular">
     <div *ngIf="selectedCategory.name === 'Audio'">
       <div class="section" id="audio">
         <h2>Beat Production  <i class="fa-solid fa-video" (click)="openSlideshowModal(beatProductionAudioFiles, 'audio')"></i></h2>
@@ -74,8 +74,8 @@
           <button class="prev-btn" (click)="scrollLeft(entertainmentGallery)" *ngIf="canSlide(entertainmentVideoFiles)">‹</button>
           <div class="gallery" #entertainmentGallery>
             <div *ngFor="let file of entertainmentVideoFiles" class="gallery-item"
-              (mouseenter)="playVideo($event)" 
-              (mouseleave)="pauseVideo($event)"
+            (mouseenter)="!isMobile && playVideo($event)" 
+            (mouseleave)="!isMobile && pauseVideo($event)" 
               (click)="openMediaModal(file.url, 'video', 'Video')">
               <!-- Thumbnail image -->
               <img [src]="file.thumbnail" alt="Video Thumbnail" class="thumbnail" />
@@ -94,8 +94,8 @@
         <div class="carousel">
           <button class="prev-btn" (click)="scrollLeft(lyricGallery)" *ngIf="canSlide(lyricVideoFiles)">‹</button>
           <div class="gallery" #lyricGallery>
-            <div *ngFor="let file of lyricVideoFiles" (mouseenter)="playVideo($event)" 
-            (mouseleave)="pauseVideo($event)" class="gallery-item" (click)="openMediaModal(file.url, 'video', 'Video')">
+            <div *ngFor="let file of lyricVideoFiles" (mouseenter)="!isMobile && playVideo($event)" 
+            (mouseleave)="!isMobile && pauseVideo($event)"  class="gallery-item" (click)="openMediaModal(file.url, 'video', 'Video')">
               <!-- Use a placeholder image or video thumbnail here -->
               <img [src]="file.thumbnail" alt="Video Thumbnail" class="thumbnail"/>
 
@@ -116,8 +116,8 @@
         <div class="carousel">
           <button class="prev-btn" (click)="scrollLeft(musicGallery)" *ngIf="canSlide(musicVideoFiles)">‹</button>
           <div class="gallery" #musicGallery>
-            <div *ngFor="let file of musicVideoFiles" (mouseenter)="playVideo($event)" 
-            (mouseleave)="pauseVideo($event)" class="gallery-item" (click)="openMediaModal(file.url, 'video', 'Video')">
+            <div *ngFor="let file of musicVideoFiles" (mouseenter)="!isMobile && playVideo($event)" 
+            (mouseleave)="!isMobile && pauseVideo($event)" class="gallery-item" (click)="openMediaModal(file.url, 'video', 'Video')">
               <!-- Use a placeholder image or video thumbnail here -->
               <img [src]="file.thumbnail" alt="Video Thumbnail" class="thumbnail"/>
 
@@ -138,8 +138,8 @@
         <div class="carousel">
           <button class="prev-btn" (click)="scrollLeft(musicVisualizerGallery)" *ngIf="canSlide(musicVisualizerVideoFiles)">‹</button>
           <div class="gallery" #musicVisualizerGallery>
-            <div *ngFor="let file of musicVisualizerVideoFiles"  (mouseenter)="playVideo($event)" 
-            (mouseleave)="pauseVideo($event)" class="gallery-item" (click)="openMediaModal(file.url, 'video', 'Video')">
+            <div *ngFor="let file of musicVisualizerVideoFiles"  (mouseenter)="!isMobile && playVideo($event)" 
+            (mouseleave)="!isMobile && pauseVideo($event)"  class="gallery-item" (click)="openMediaModal(file.url, 'video', 'Video')">
               <!-- Use a placeholder image or video thumbnail here -->
               <img [src]="file.thumbnail" alt="Video Thumbnail" class="thumbnail"/>
 
@@ -160,8 +160,8 @@
         <div class="carousel">
           <button class="prev-btn" (click)="scrollLeft(scenicVisualizerGallery)" *ngIf="canSlide(scenicVisualizerVideoFiles)">‹</button>
           <div class="gallery" #scenicVisualizerGallery>
-            <div *ngFor="let file of scenicVisualizerVideoFiles"  (mouseenter)="playVideo($event)" 
-            (mouseleave)="pauseVideo($event)" class="gallery-item" (click)="openMediaModal(file.url, 'video', 'Video')">
+            <div *ngFor="let file of scenicVisualizerVideoFiles"  (mouseenter)="!isMobile && playVideo($event)" 
+            (mouseleave)="!isMobile && pauseVideo($event)"  class="gallery-item" (click)="openMediaModal(file.url, 'video', 'Video')">
               <!-- Use a placeholder image or video thumbnail here -->
               <img [src]="file.thumbnail" alt="Video Thumbnail" class="thumbnail"/>
 
@@ -182,8 +182,8 @@
         <div class="carousel">
           <button class="prev-btn" (click)="scrollLeft(stopMotionGallery)" *ngIf="canSlide(stopMotionVideoFiles)">‹</button>
           <div class="gallery" #stopMotionGallery>
-            <div *ngFor="let file of stopMotionVideoFiles"  (mouseenter)="playVideo($event)" 
-            (mouseleave)="pauseVideo($event)" class="gallery-item" (click)="openMediaModal(file.url, 'video', 'Video')">
+            <div *ngFor="let file of stopMotionVideoFiles"  (mouseenter)="!isMobile && playVideo($event)" 
+            (mouseleave)="!isMobile && pauseVideo($event)"  class="gallery-item" (click)="openMediaModal(file.url, 'video', 'Video')">
               <!-- Use a placeholder image or video thumbnail here -->
               <img [src]="file.thumbnail" alt="Video Thumbnail" class="thumbnail"/>
 
@@ -318,7 +318,7 @@
           <button class="next-btn" (click)="scrollRight(neonoirGallery)" *ngIf="canSlide(neonoirPhotographyFiles)">›</button>
         </div>
 
-        <h2>Trains <i class="fa-solid fa-video" (click)="openSlideshowModal(trainsPhotographyFiles, 'image')">Start Slideshow</i></h2>
+        <h2>Trains <i class="fa-solid fa-video" (click)="openSlideshowModal(trainsPhotographyFiles, 'image')"></i></h2>
         <div class="carousel">
           <button class="prev-btn" (click)="scrollLeft(trainsGallery)" *ngIf="canSlide(trainsPhotographyFiles)">‹</button>
           <div class="gallery" #trainsGallery>

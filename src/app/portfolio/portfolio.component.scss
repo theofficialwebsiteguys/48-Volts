@@ -41,10 +41,10 @@
   overflow: hidden;
 }
 
-.carousel:hover .prev-btn,
-.carousel:hover .next-btn {
-  opacity: 1;
-}
+// .carousel:hover .prev-btn,
+// .carousel:hover .next-btn {
+//   opacity: 1;
+// }
 
 .gallery {
   display: flex;
@@ -79,21 +79,21 @@
   display: none; 
 }
 
-.slideshow-btn {
-  background-color: #00ccff;
-  border: none;
-  color: white;
-  padding: 5px 10px;
-  cursor: pointer;
-  font-size: 14px;
-  margin-left: 20px;
-  border-radius: 4px;
-  transition: background-color 0.3s;
-}
+// .slideshow-btn {
+//   background-color: #00ccff;
+//   border: none;
+//   color: white;
+//   padding: 5px 10px;
+//   cursor: pointer;
+//   font-size: 14px;
+//   margin-left: 20px;
+//   border-radius: 4px;
+//   transition: background-color 0.3s;
+// }
 
-.slideshow-btn:hover {
-  background-color: #008fb3;
-}
+// .slideshow-btn:hover {
+//   background-color: #008fb3;
+// }
 
 
 .video-overlay {
@@ -109,17 +109,17 @@
   transition: opacity 0.3s ease-in-out;
 }
 
-.gallery-item:hover .video-overlay {
-  opacity: 1;
-}
+// .gallery-item:hover .video-overlay {
+//   opacity: 1;
+// }
 
-.gallery-item:hover .video-element {
-  display: block; 
-}
+// .gallery-item:hover .video-element {
+//   display: block; 
+// }
 
-.gallery-item:hover .thumbnail {
-  display: none; 
-}
+// .gallery-item:hover .thumbnail {
+//   display: none; 
+// }
 
 
 .thumbnail, .video-element {
@@ -181,11 +181,6 @@
 }
 
 
-.gallery:hover .prev-btn,
-.gallery:hover .next-btn {
-  opacity: 1;
-}
-
 .prev-btn {
   left: 10px;
 }
@@ -232,8 +227,7 @@ audio, video, img {
 }
 
 .prev-btn, .next-btn {
-  position: absolute;
-  top: 50%;
+  margin-top: 5%;
   transform: translateY(-50%);
   background-color: rgba(0, 0, 0, 0.5);
   color: white;
@@ -242,22 +236,9 @@ audio, video, img {
   padding: 10px;
   cursor: pointer;
   z-index: 3; 
-  opacity: 0; 
+  opacity: 1; 
   transition: opacity 0.3s ease;
 }
-
-.prev-btn {
-  left: 10px;
-}
-
-.next-btn {
-  right: 10px;
-}
-
-.prev-btn:hover, .next-btn:hover {
-  background-color: rgba(0, 0, 0, 0.8);
-}
-
 
 
 
@@ -327,7 +308,7 @@ audio, video, img {
 
 
 .gallery-item:hover, .audio-item:hover {
-  transform: scale(1.1);
+  transform: scale(.9);
   z-index: 2; 
   transition: transform 0.3s ease-in-out;
 }
@@ -353,3 +334,4 @@ audio, video, img {
     padding: 5px;
   }
 }
+

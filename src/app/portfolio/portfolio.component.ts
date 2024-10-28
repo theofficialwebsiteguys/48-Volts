@@ -1,14 +1,15 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { CommonModule } from '@angular/common';
-import { Component, ElementRef, QueryList, ViewChild, ViewChildren } from '@angular/core';
+import { Component, ElementRef, HostListener, QueryList, ViewChild, ViewChildren } from '@angular/core';
 import { ModalComponent } from '../modal/modal.component';
 import { MatDialog } from '@angular/material/dialog';
 import { SlideshowModalComponent } from '../slideshow-modal/slideshow-modal.component';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-portfolio',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './portfolio.component.html',
   styleUrls: ['./portfolio.component.scss'],  // Fixed typo from styleUrl to styleUrls
   animations: [
@@ -74,6 +75,21 @@ export class PortfolioComponent {
     {
       name: 'Video',
       additionalIcon: 'fa-solid fa-video',  // Video camera icon overlay
+      subcategories: ['Movies', 'Short Films', 'Commercials']
+    },
+    {
+      name: 'Events',
+      additionalIcon: 'fa-solid fa-calendar-days',  // Video camera icon overlay
+      subcategories: ['Movies', 'Short Films', 'Commercials']
+    },
+    {
+      name: 'Social Media',
+      additionalIcon: 'fa-brands fa-threads',  // Video camera icon overlay
+      subcategories: ['Movies', 'Short Films', 'Commercials']
+    },
+    {
+      name: 'Sound Design',
+      additionalIcon: 'fa-solid fa-volume-high',  // Video camera icon overlay
       subcategories: ['Movies', 'Short Films', 'Commercials']
     }
   ];
@@ -437,12 +453,19 @@ export class PortfolioComponent {
 
   selectedCategory: any = null;
   visibleItemsCount = 5;
+  isMobile: boolean = false;
 
   constructor(public dialog: MatDialog) {}
 
   ngOnInit() {
     this.calculateVisibleItems();
     window.addEventListener('resize', this.calculateVisibleItems.bind(this));
+    this.isMobile = window.innerWidth <= 768; // or any breakpoint you prefer
+  }
+
+  @HostListener('window:resize')
+  onResize() {
+    this.isMobile = window.innerWidth <= 768;
   }
 
   ngAfterViewInit() {
@@ -553,19 +576,34 @@ export class PortfolioComponent {
 }
 
 playVideo(event: any) {
-  const video = event.target.querySelector('.video-element');
-  if (video) {
-    video.play();
+  if (!this.isMobile) {
+    const galleryItem = event.currentTarget as HTMLElement;
+    const video = galleryItem.querySelector('.video-element') as HTMLVideoElement;
+    const thumbnail = galleryItem.querySelector('.thumbnail') as HTMLImageElement;
+
+    if (video && thumbnail) {
+      thumbnail.style.display = 'none'; // Hide the thumbnail
+      video.style.display = 'block'; // Show the video
+      video.play(); // Start playing the video
+    }
   }
 }
 
 pauseVideo(event: any) {
-  const video = event.target.querySelector('.video-element');
-  if (video) {
-    video.pause();
-    video.currentTime = 0; // Reset video to the start
+  if (!this.isMobile) {
+    const galleryItem = event.currentTarget as HTMLElement;
+    const video = galleryItem.querySelector('.video-element') as HTMLVideoElement;
+    const thumbnail = galleryItem.querySelector('.thumbnail') as HTMLImageElement;
+
+    if (video && thumbnail) {
+      video.pause(); // Stop the video
+      video.currentTime = 0; // Reset video to the start
+      video.style.display = 'none'; // Hide the video
+      thumbnail.style.display = 'block'; // Show the thumbnail
+    }
   }
 }
+
 
 openSlideshowModal(items: any[], itemType: string): void {
   this.dialog.open(SlideshowModalComponent, {

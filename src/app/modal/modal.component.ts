@@ -23,20 +23,16 @@ export class ModalComponent {
     this.mediaType = data.mediaType;
   }
 
-  onClose(): void {
+  onClose(event: any): void {
+    event.preventDefault();
     this.dialogRef.close();
   }
+  
 
   @ViewChild('mediaImage') mediaImage!: ElementRef<HTMLImageElement>;
 
 
-  ngAfterViewInit() {
-    // Once the image is loaded, adjust the modal size
-    const imageElement = this.mediaImage.nativeElement;
-    imageElement.onload = () => {
-      this.adjustModalSize(imageElement);
-    };
-  }
+  
 
   adjustModalSize(image: HTMLImageElement) {
     const naturalWidth = image.naturalWidth;

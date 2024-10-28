@@ -1,36 +1,147 @@
-<div class="carousel-container" style="position: relative;">
-    <section class="hero-section">
-        <h1>48 Games</h1>
-        <p>Enjoy our collection of 48 movies. Click on any movie to start playing!</p>
-    </section>
+<div class="carousel-container audiowide-regular">
+  <section class="text-center hero-section audiowide-regular">
+    <p>Enjoy our collection of 48 movies. Click on any movie to start playing!</p>
+  </section>
 
-  <div id="movieCarousel-all" class="carousel slide" data-bs-ride="carousel">
-    <div class="carousel-inner">
-    <h2 class="movie-group">All Movies</h2>
-      <div
-        *ngFor="let movieGroup of groupedMovies; let i = index"
-        class="carousel-item"
-        [ngClass]="{'active': i === 0}"
-      >
-        <div class="row">
-          <div class="col" *ngFor="let movie of movieGroup">
-            <img [src]="movie.posterUrl" class="d-block" alt="{{ movie.title }}">
-            <div class="carousel-caption">
-              <h5>{{ movie.title }}</h5>
-              <p>{{ movie.description }}</p>
-            </div>
+ 
+  <h2 class="header">Classic Comedies & Romance</h2>
+  <div class="carousel">
+    <button class="prev-btn" (click)="scrollLeft(classicComedyRomance)" *ngIf="canSlide(comedyRomance)">‹</button>
+    <div class="gallery" #classicComedyRomance>
+      <div *ngFor="let movie of comedyRomance" class="gallery-item"
+        (click)="openMediaModal(movie.movieUrl, 'video', 'Video')">
+          <!-- Thumbnail image -->
+          <img [src]="movie.posterUrl" alt="Video Thumbnail" class="thumbnail" />
+          <!-- Video element for hover play -->
+          <video [src]="movie.movieUrl" muted preload="metadata" class="video-element"></video>
+          <!-- Overlay for title -->
+          <div class="video-overlay">
+            <h3>{{ movie.title }}</h3>
           </div>
-        </div>
       </div>
     </div>
-    <button class="carousel-control-prev" type="button" data-bs-target="#movieCarousel-all" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Previous</span>
-    </button>
-    <button class="carousel-control-next" type="button" data-bs-target="#movieCarousel-all" data-bs-slide="next">
-      <span class="carousel-control-next-icon" aria-hidden="true"></span>
-      <span class="visually-hidden">Next</span>
-    </button>
+    <button class="next-btn" (click)="scrollRight(classicComedyRomance)" *ngIf="canSlide(comedyRomance)">›</button>
   </div>
+
+
+  <h2 class="header">Classic Horror</h2>
+  <div class="carousel">
+    <button class="prev-btn" (click)="scrollLeft(classicHorror)" *ngIf="canSlide(horror)">‹</button>
+    <div class="gallery" #classicHorror>
+      <div *ngFor="let movie of horror" class="gallery-item"
+        (click)="openMediaModal(movie.movieUrl, 'video', 'Video')">
+          <!-- Thumbnail image -->
+          <img [src]="movie.posterUrl" alt="Video Thumbnail" class="thumbnail" />
+          <!-- Video element for hover play -->
+          <video [src]="movie.movieUrl" muted preload="metadata" class="video-element"></video>
+          <!-- Overlay for title -->
+          <div class="video-overlay">
+            <h3>{{ movie.title }}</h3>
+          </div>
+      </div>
+    </div>
+    <button class="next-btn" (click)="scrollRight(classicHorror)" *ngIf="canSlide(horror)">›</button>
+  </div>
+
+
+  <h2 class="header">Cultural & Experimental</h2>
+  <div class="carousel">
+    <button class="prev-btn" (click)="scrollLeft(cultural)" *ngIf="canSlide(culturalExperimental)">‹</button>
+    <div class="gallery" #cultural>
+      <div *ngFor="let movie of culturalExperimental" class="gallery-item"
+        (click)="openMediaModal(movie.movieUrl, 'video', 'Video')">
+          <!-- Thumbnail image -->
+          <img [src]="movie.posterUrl" alt="Video Thumbnail" class="thumbnail" />
+          <!-- Video element for hover play -->
+          <video [src]="movie.movieUrl" muted preload="metadata" class="video-element"></video>
+          <!-- Overlay for title -->
+          <div class="video-overlay">
+            <h3>{{ movie.title }}</h3>
+          </div>
+      </div>
+    </div>
+    <button class="next-btn" (click)="scrollRight(cultural)" *ngIf="canSlide(culturalExperimental)">›</button>
+  </div>
+
+  <h2 class="header">Iconic Dramas</h2>
+  <div class="carousel">
+    <button class="prev-btn" (click)="scrollLeft(drama)" *ngIf="canSlide(dramas)">‹</button>
+    <div class="gallery" #drama>
+      <div *ngFor="let movie of dramas" class="gallery-item"
+        (click)="openMediaModal(movie.movieUrl, 'video', 'Video')">
+          <!-- Thumbnail image -->
+          <img [src]="movie.posterUrl" alt="Video Thumbnail" class="thumbnail" />
+          <!-- Video element for hover play -->
+          <video [src]="movie.movieUrl" muted preload="metadata" class="video-element"></video>
+          <!-- Overlay for title -->
+          <div class="video-overlay">
+            <h3>{{ movie.title }}</h3>
+          </div>
+      </div>
+    </div>
+    <button class="next-btn" (click)="scrollRight(drama)" *ngIf="canSlide(dramas)">›</button>
+  </div>
+
+
+  <h2 class="header">Sci-Fi & Fantasy</h2>
+  <div class="carousel">
+    <button class="prev-btn" (click)="scrollLeft(sciFi)" *ngIf="canSlide(sciFiFantasy)">‹</button>
+    <div class="gallery" #sciFi>
+      <div *ngFor="let movie of sciFiFantasy" class="gallery-item"
+        (click)="openMediaModal(movie.movieUrl, 'video', 'Video')">
+          <!-- Thumbnail image -->
+          <img [src]="movie.posterUrl" alt="Video Thumbnail" class="thumbnail" />
+          <!-- Video element for hover play -->
+          <video [src]="movie.movieUrl" muted preload="metadata" class="video-element"></video>
+          <!-- Overlay for title -->
+          <div class="video-overlay">
+            <h3>{{ movie.title }}</h3>
+          </div>
+      </div>
+    </div>
+    <button class="next-btn" (click)="scrollRight(sciFi)" *ngIf="canSlide(sciFiFantasy)">›</button>
+  </div>
+
+  <h2 class="header">Silent Cinema</h2>
+  <div class="carousel">
+    <button class="prev-btn" (click)="scrollLeft(silentCinema)" *ngIf="canSlide(silent)">‹</button>
+    <div class="gallery" #silentCinema>
+      <div *ngFor="let movie of silent" class="gallery-item"
+        (click)="openMediaModal(movie.movieUrl, 'video', 'Video')">
+          <!-- Thumbnail image -->
+          <img [src]="movie.posterUrl" alt="Video Thumbnail" class="thumbnail" />
+          <!-- Video element for hover play -->
+          <video [src]="movie.movieUrl" muted preload="metadata" class="video-element"></video>
+          <!-- Overlay for title -->
+          <div class="video-overlay">
+            <h3>{{ movie.title }}</h3>
+          </div>
+      </div>
+    </div>
+    <button class="next-btn" (click)="scrollRight(silentCinema)" *ngIf="canSlide(silent)">›</button>
+  </div>
+
+
+  <h2 class="header">Thriller & Noir</h2>
+  <div class="carousel">
+    <button class="prev-btn" (click)="scrollLeft(thriller)" *ngIf="canSlide(thrillersNoir)">‹</button>
+    <div class="gallery" #thriller>
+      <div *ngFor="let movie of thrillersNoir" class="gallery-item"
+        (click)="openMediaModal(movie.movieUrl, 'video', 'Video')">
+          <!-- Thumbnail image -->
+          <img [src]="movie.posterUrl" alt="Video Thumbnail" class="thumbnail" />
+          <!-- Video element for hover play -->
+          <video [src]="movie.movieUrl" muted preload="metadata" class="video-element"></video>
+          <!-- Overlay for title -->
+          <div class="video-overlay">
+            <h3>{{ movie.title }}</h3>
+          </div>
+      </div>
+    </div>
+    <button class="next-btn" (click)="scrollRight(thriller)" *ngIf="canSlide(thrillersNoir)">›</button>
+  </div>
+
+
+
 
 </div>

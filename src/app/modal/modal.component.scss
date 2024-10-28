@@ -113,3 +113,39 @@ mat-dialog-content img {
 ::ng-deep .mdc-dialog__surface {
     max-width: 500px !important; /* Set the max width to 500px */
 }
+
+
+.dialog-container {
+  position: relative;
+}
+
+.back-button {
+  position: absolute;
+  margin: 5px;
+  background-color: black; /* Neon/techy color */
+  color: #fff;
+  border: none;
+  border-radius: 20px;
+  padding: 8px 20px;
+  font-size: 14px;
+  box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  z-index: 99;
+}
+
+.back-button:hover {
+  background-color: #6d6d6d; /* Hover effect */
+}
+
+.back-button mat-icon {
+  font-size: 20px;
+  vertical-align: middle;
+}
+
+/* Adjust dialog content padding */
+mat-dialog-content {
+  padding: 30px 20px;
+}

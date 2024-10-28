@@ -6,11 +6,12 @@ import { LandingComponent } from './landing/landing.component';
 import { HomeComponent } from './home/home.component';
 import { HeroComponent } from './hero/hero.component';
 import { NavComponent } from './nav/nav.component';
+import { HammerModule } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterModule, LandingComponent, HomeComponent, HeroComponent, NavComponent, CommonModule],
+  imports: [RouterModule, LandingComponent, HomeComponent, HeroComponent, NavComponent, CommonModule, HammerModule],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
